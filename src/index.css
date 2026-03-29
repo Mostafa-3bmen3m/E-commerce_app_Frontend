@@ -14,16 +14,16 @@
   --radius-3xl: 2rem;
 }
 
-:root {
+:root, .light {
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
+  --bg-secondary: #fbfbfc;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
   --accent-primary: #4f46e5;
   --accent-hover: #4338ca;
-  --border-color: #f3f4f6;
+  --border-color: #f1f5f9;
   
-  --transition-speed: 0.3s;
+  --transition-speed: 0.4s;
 }
 
 .dark {
