@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const { theme } = useTheme();
-  const { addToWishlist, isInWishlist, removeFromWishlist } = useWishlistStore();
+  const { toggleWatchlist, isInWishlist } = useWishlistStore();
   const { addItem } = useCartStore();
   
   const [latestProducts, setLatestProducts] = useState([]);
@@ -186,7 +186,7 @@ const Home = () => {
                   </Link>
                   
                   <button 
-                    onClick={() => isInWishlist(product.id) ? removeFromWishlist(product.id) : addToWishlist({ id: product.id, name: product.name, price: product.price, images: product.images })}
+                    onClick={() => toggleWatchlist({ id: product.id, name: product.name, price: product.price, images: product.images })}
                     className={`absolute top-5 right-5 p-3 rounded-full backdrop-blur-md transition-all z-20 ${
                       isInWishlist(product.id) ? 'bg-red-500 text-white' : 'bg-white/20 text-white hover:bg-white/40'
                     }`}

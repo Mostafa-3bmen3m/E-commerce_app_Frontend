@@ -96,7 +96,7 @@ const Navbar = () => {
               {themeIcons[theme]}
             </button>
 
-            <Link to="/wishlist" className="p-2 text-custom-secondary hover:bg-custom-secondary/20 rounded-full transition-colors relative hidden sm:flex">
+            <Link to="/watchlist" className="p-2 text-custom-secondary hover:bg-custom-secondary/20 rounded-full transition-colors relative hidden sm:flex">
               <Heart size={20} />
               {wishlistCount > 0 && (
                 <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] flex items-center justify-center rounded-full animate-pulse">
@@ -143,7 +143,7 @@ const Navbar = () => {
           <Link to="/categories" className="block text-custom-secondary font-medium" onClick={() => setIsOpen(false)}>Categories</Link>
           <Link to="/about" className="block text-custom-secondary font-medium" onClick={() => setIsOpen(false)}>About</Link>
           <Link to="/contact" className="block text-custom-secondary font-medium" onClick={() => setIsOpen(false)}>Contact</Link>
-          <Link to="/wishlist" className="block text-custom-secondary font-medium sm:hidden" onClick={() => setIsOpen(false)}>Wishlist ({wishlistCount})</Link>
+          <Link to="/watchlist" className="block text-custom-secondary font-medium sm:hidden" onClick={() => setIsOpen(false)}>Watchlist ({wishlistCount})</Link>
           {user?.role === 'ADMIN' && (
             <Link to="/admin" className="flex items-center space-x-2 text-accent font-bold py-2 border-t border-custom mt-2" onClick={() => setIsOpen(false)}>
               <LayoutDashboard size={20} />

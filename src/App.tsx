@@ -11,8 +11,11 @@ import Contact from './pages/Contact';
 import AdminDashboard from './pages/admin/Dashboard';
 import Register from './pages/Register';
 import Categories from './pages/Categories';
+import Watchlist from './pages/Watchlist';
 import { useEffect } from 'react';
 import { useTheme } from './store/useTheme';
+import { useAuthStore } from './store/useAuthStore';
+import { useWishlistStore } from './store/useWishlistStore';
 
 const About = () => (
   <div className="max-w-4xl mx-auto px-4 py-20 text-center space-y-8 bg-custom-primary transition-colors duration-300 min-h-screen">
@@ -31,10 +34,18 @@ const About = () => (
 
 function App() {
   const { theme } = useTheme();
+  const { user } = useAuthStore();
+  const { fetchWatchlist } = useWishlistStore();
 
   useEffect(() => {
     document.documentElement.className = theme;
   }, [theme]);
+
+  useEffect(() => {
+    if (user) {
+      fetchWatchlist();
+    }
+  }, [user, fetchWatchlist]);
 
   return (
     <BrowserRouter>
@@ -47,6 +58,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="watchlist" element={<Watchlist />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="admin" element={<AdminDashboard />} />
